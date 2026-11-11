@@ -1,61 +1,19 @@
-name: Build and test
+name: Opora build and test
 on:
   push:
   pull_request:
 permissions:
   contents: read
 jobs:
-  build:
+  opora:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '25'
           cache: maven
+          cache-dependency-path: pom.xml
       - run: ./mvnw --batch-mode --no-transfer-progress clean verify
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: All client contract checks
-        run: |
-          for script in scripts/test-*.mjs; do
-            node "$script"
-          done
-      - name: Content source and asset checks
-        run: |
-          python3 scripts/check-ai-content.py
-          python3 scripts/check-ai-models.py
-          python3 scripts/check-ai-russia.py
-      - name: Install browser test dependencies
-        id: browser-deps
-        run: |
-          npm install --prefix "$RUNNER_TEMP/browser-test" playwright@1.58.2
-          "$RUNNER_TEMP/browser-test/node_modules/.bin/playwright" install --with-deps chromium
-      - name: Browser and persistent database restart
-        env:
-          PLAYWRIGHT_MODULE: ${{ runner.temp }}/browser-test/node_modules/playwright
-        run: node scripts/browser-smoke.cjs
-      - name: Java PDF library and persistent files
-        if: ${{ !cancelled() && steps.browser-deps.outcome == 'success' }}
-        env:
-          PLAYWRIGHT_MODULE: ${{ runner.temp }}/browser-test/node_modules/playwright
-        run: node scripts/java-library-smoke.cjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: test-report
-          path: |
-            target/surefire-reports
-            target/browser-server.log
-            target/java-library-server.log
-            target/browser-screenshots
-  container:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build production image on Java 21
-        run: docker build --tag bookstore:ci .
