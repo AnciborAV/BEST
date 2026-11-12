@@ -139,3 +139,33 @@ dialog.symbol-story { width: min(880px, calc(100% - 32px)); background: #fbf6ec;
  .symbol-story .dialog-paragraph { font-size: 16px; line-height: 1.75; }
  .story-section h3 { font-size: 21px; gap: 10px; }
 }
+
+/* Вариант 02: золото рассвета и курсивная подпись. */
+.brand { display: inline-flex; flex-direction: column; align-items: center; }
+.brand span {
+  font: 400 62px/1.05 'Times New Roman', Times, serif;
+  letter-spacing: .06em; padding-left: .06em;
+  background: linear-gradient(#f5e6c9, #c09a5f);
+  color: transparent; background-clip: text; -webkit-background-clip: text;
+}
+.brand small {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 10px; color: #e0c79c;
+  font: italic 16px/1.35 Georgia, 'Times New Roman', serif;
+  letter-spacing: 0; text-transform: none; white-space: nowrap;
+}
+.brand small::before, .brand small::after {
+  content: ''; display: block; width: 22px; height: 1px;
+  background: #a78b5e; opacity: .7;
+}
+@media (max-width: 900px) {
+  .brand span { font-size: 48px; }
+  .brand small { font-size: 14px; gap: 9px; margin-top: 8px; }
+  .brand small::before, .brand small::after { width: 18px; }
+}
+@media (max-width: 420px) {
+  .brand span { font-size: clamp(39px, 11.3vw, 47px); }
+  .brand small { font-size: 13px; gap: 8px; }
+  .brand small::before, .brand small::after { width: 14px; }
+}
+@media (max-width: 900px) { .brand { justify-self: start; } }
