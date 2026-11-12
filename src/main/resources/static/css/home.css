@@ -1,138 +1,140 @@
 :root {
     color-scheme: light;
-    --paper: #f7efe4;
-    --ink: #24241f;
-    --gold: #e7bd75;
-    --sepia: #836137;
-    --hero-text: #f3ebde;
+    --dark: #151d1e;
+    --cream: #f5e9d8;
+    --paper: #f8efe3;
+    --ink: #292923;
+    --gold: #e6bb75;
+    --sepia: #86613a;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; text-align: justify; text-justify: inter-word; }
-a { color: inherit; text-decoration: none; }
-button { color: inherit; font: inherit; cursor: pointer; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--paper); color: var(--ink); text-align: justify; text-justify: inter-word; }
+a { text-decoration: none; color: inherit; }
+button { font: inherit; cursor: pointer; color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid #e7bd75; outline-offset: 4px; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 .page { max-width: 1440px; margin: 0 auto; }
 .header {
-    min-height: 115px; display: flex; gap: 34px; align-items: center;
-    padding: 17px 5.5%; color: #f1e8d8; background: #151d1c;
-    border-bottom: 1px solid #d4b48c5c;
+    display: flex; align-items: center; gap: 35px; min-height: 116px;
+    padding: 17px 5.45%; background: linear-gradient(100deg, #192020, #142124);
+    border-bottom: 1px solid #d7c0a459; color: var(--cream);
 }
 .brand { flex-shrink: 0; text-align: left; }
-.brand > span { display: block; font: 400 50px Georgia, 'Times New Roman', serif; letter-spacing: .19em; white-space: nowrap; }
-.brand small { display: block; margin-top: 6px; text-transform: uppercase; font-size: 14px; letter-spacing: .27em; }
-.navigation { display: flex; gap: 10px; align-items: center; margin-left: auto; color: #ece4d8; font-size: 18px; white-space: nowrap; }
-.navigation button { padding: 10px 0; border: 0; background: none; }
-.navigation a { padding: 10px 0; }
-.login { padding: 15px 26px; border: 1px solid #dec09c9c; background: transparent; border-radius: 4px; font-size: 18px; white-space: nowrap; }
+.brand > span { display: block; font: 400 50px Georgia, 'Times New Roman', serif; letter-spacing: .2em; line-height: 1.05; }
+.brand small { display: block; margin-top: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .27em; }
+.navigation { display: flex; align-items: center; gap: 11px; margin-left: auto; font-size: 19px; color: #eee7dc; white-space: nowrap; }
+.navigation a, .navigation button { background: transparent; border: 0; padding: 10px 0; }
+.login { padding: 14px 24px; border: 1px solid #e9cfb080; background: transparent; border-radius: 3px; font-size: 18px; white-space: nowrap; }
 .hero {
-    position: relative; isolation: isolate; overflow: hidden; min-height: 680px;
-    display: grid; grid-template-columns: minmax(0, 47%) minmax(0, 53%); align-items: center;
-    padding: 40px 4.5% 65px 5.5%;
-    color: var(--hero-text); background: #1c2625;
+    position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-start;
+    min-height: 680px; color: var(--cream);
+    background: #1e2726 url('/images/approved-hero.webp') center / 100% 100% no-repeat;
 }
-.hero-scenery {
-    position: absolute; z-index: -1; inset: 0;
-    background-image:
-        linear-gradient(90deg, rgba(19,25,25,.93) 0%, rgba(23,27,27,.70) 31%, rgba(22,28,27,.15) 58%, rgba(22,28,27,.34) 100%),
-        url('/images/sunrise-landscape.svg');
-    background-repeat: no-repeat; background-size: cover; background-position: center 56%;
+/* The approved scenic image remains intact at right. The shadowed left pane hides old embedded letters. */
+.hero::before {
+    content: ''; position: absolute; z-index: -1; inset: 0;
+    background: linear-gradient(90deg, rgba(19,25,25,1) 0%, rgba(24,27,26,.997) 26%, rgba(23,28,27,.99) 38%, rgba(24,29,28,.36) 53%, transparent 68%);
+    pointer-events: none;
 }
-.hero-copy { min-width: 0; position: relative; z-index: 1; }
-.eyebrow { margin: 0 0 31px; color: #e9bc72; font-size: 16px; letter-spacing: .2em; text-align: left; text-transform: uppercase; }
+.hero-copy { position: relative; z-index: 1; width: 47%; padding: 69px 0 53px 5.5%; }
+.eyebrow { margin: 0 0 28px; font-size: 15px; letter-spacing: .23em; color: #e5b974; text-align: left; text-transform: uppercase; white-space: nowrap; }
 h1, h2, .direction-name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
-h1 { margin: 0 0 30px; font-size: clamp(44px, 5vw, 74px); line-height: 1.11; letter-spacing: -.025em; text-align: left; }
-.intro { margin: 0; max-width: 490px; font-size: clamp(18px, 1.8vw, 23px); line-height: 1.65; color: #f3ebde; }
-.actions { display: flex; flex-wrap: wrap; gap: 23px; align-items: center; margin-top: 37px; }
-.primary { display: inline-flex; justify-content: center; align-items: center; gap: 22px; min-height: 55px; border: 0; border-radius: 3px; padding: 15px 27px; background: var(--gold); color: #1d251e; font-size: 19px; text-align: center; }
-.primary span { font-size: 28px; line-height: 1; }
-.symbol-link { background: transparent; color: var(--hero-text); border: 0; border-bottom: 1px solid #e5d8c3a6; padding: 15px 0; font-size: 18px; }
-.motto { margin: 49px 0 0; color: #e9e0d2; font-size: 14px; text-align: left; letter-spacing: .26em; line-height: 1.8; text-transform: uppercase; }
-.hero-art { min-width: 0; position: relative; align-self: center; justify-self: center; width: min(100%, 680px); }
-.hero-art img { display: block; width: 100%; height: auto; mix-blend-mode: lighten; filter: drop-shadow(0 10px 25px rgba(4,9,8,.55)); }
+h1 { margin: 0 0 31px; font-size: clamp(45px, 5.8vw, 75px); line-height: 1.12; letter-spacing: -.023em; text-align: left; }
+.intro { margin: 0; max-width: 460px; font-size: clamp(18px, 1.85vw, 23px); line-height: 1.64; color: #f3e9db; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; }
+.primary { display: inline-flex; align-items: center; justify-content: center; gap: 19px; background: var(--gold); color: #25271f; border: 0; border-radius: 3px; padding: 17px 28px; min-height: 65px; font-size: 18px; white-space: nowrap; text-align: center; }
+.primary span { font-size: 27px; line-height: 1; }
+.symbol-link { padding: 12px 0; border: 0; border-bottom: 1px solid #e7ddc4ac; background: #222621d9; box-shadow: 0 0 10px 8px #222621a1; color: #f4eee2; font-size: 17px; text-align: left; }
+.motto { margin: 48px 0 0; font-size: 14px; line-height: 1.7; letter-spacing: .24em; text-transform: uppercase; color: #ebe1d2; text-align: left; white-space: nowrap; }
+.mobile-wolves { display: none; }
 .path {
-    position: relative; overflow: hidden; min-height: 480px;
-    padding: 44px 5.5% 100px; scroll-margin-top: 12px;
-    background: var(--paper); color: var(--ink);
+    position: relative; min-height: 495px; overflow: hidden; padding: 39px 5.5% 155px;
+    color: var(--ink); background-color: var(--paper); scroll-margin-top: 8px;
+    background-image: radial-gradient(ellipse at 50% 30%, #fff8ef80, transparent 75%);
+}
+.path::before {
+    content: ''; position: absolute; z-index: 0; right: 0; top: 8px;
+    width: min(30%, 320px); height: 130px;
+    background: url('/images/approved-paper-peak.webp') right top / contain no-repeat;
+    opacity: .9; pointer-events: none;
 }
 .path::after {
-    content: ''; position: absolute; z-index: 0; pointer-events: none; inset: auto 0 0; height: 125px;
-    background: url('/images/opora-approved.webp') center bottom / 100% auto no-repeat;
-    opacity: .26;
-    -webkit-mask-image: linear-gradient(transparent, #000 75%);
-    mask-image: linear-gradient(transparent, #000 75%);
+    content: ''; position: absolute; z-index: 0; inset: auto 0 0; height: 150px;
+    background: url('/images/approved-mountains.webp') bottom center / 100% 100% no-repeat;
+    opacity: .8; pointer-events: none;
 }
-.path-inner { position: relative; z-index: 1; }
-h2 { margin: 0 0 27px; font-size: clamp(34px, 3.5vw, 46px); line-height: 1.2; text-align: left; }
-.directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #ad895e80; }
-.direction {
-    min-width: 0; display: flex; flex-direction: column; align-items: flex-start;
-    gap: 0; background: transparent; border: 0; border-right: 1px solid #9b80654f;
-    text-align: left; padding: 30px 30px 10px;
-}
+.path-content { position: relative; z-index: 1; }
+h2 { margin: 0 0 23px; text-align: left; font-size: clamp(34px, 3.4vw, 47px); line-height: 1.23; }
+.directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #9c754d88; }
+.direction { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 28px 28px 10px; border: 0; border-right: 1px solid #ae8f6b4c; background: transparent; text-align: left; }
 .direction:first-child { padding-left: 0; }
-.direction:last-child { border-right: 0; padding-right: 0; }
-.direction-icon { display: block; height: 76px; color: var(--sepia); }
-.direction-icon svg { max-width: 100%; }
-.direction-name { display: block; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; text-align: left; }
-.direction-description { display: block; margin-top: 16px; font-size: 17px; line-height: 1.55; color: #42463f; max-width: 320px; text-align: justify; }
-.direction-arrow { display: block; margin-top: 20px; font: 33px Georgia, serif; color: var(--sepia); }
-.navigation button:hover, .navigation a:hover, .symbol-link:hover { color: #f0c586; }
-.direction:hover .direction-name, .direction:hover .direction-arrow { color: #ad7a3a; }
-.primary:hover { background: #f5d092; }
-dialog { color: #eee4d3; background: #19231d; border: 1px solid #cbb079; border-radius: 5px; width: min(560px, calc(100% - 32px)); padding: 0; }
-dialog::backdrop { background: #050b08ce; }
+.direction:last-child { padding-right: 0; border-right: 0; }
+.direction-icon { color: var(--sepia); height: 61px; flex-shrink: 0; }
+.direction-name { display: block; font-size: clamp(22px, 2.2vw, 29px); line-height: 1.25; }
+.direction-description { display: block; margin-top: 14px; width: 100%; max-width: 310px; font-size: 17px; line-height: 1.53; color: #3f413d; text-align: justify; }
+.direction-arrow { display: block; margin-top: 15px; color: var(--sepia); font: 34px Georgia, serif; }
+.navigation a:hover, .navigation button:hover, .symbol-link:hover { color: #f0c985; }
+.primary:hover { background: #f2cb8e; }
+.direction:hover .direction-name, .direction:hover .direction-arrow { color: #ad7737; }
+dialog { width: min(560px, calc(100% - 32px)); padding: 0; border: 1px solid #c9a97280; border-radius: 5px; background: #1c251f; color: #f2e9db; }
+dialog::backdrop { background: #040a07d8; }
 .dialog-content { padding: 32px; }
-.dialog-content h2 { font-size: 30px; margin: 0 0 18px; }
-.dialog-content p { font-size: 18px; line-height: 1.8; white-space: pre-line; }
+.dialog-content h2 { margin: 0 0 18px; font-size: 30px; }
+.dialog-content p { font-size: 18px; line-height: 1.7; white-space: pre-line; }
 .dialog-content form { margin-top: 24px; }
-.dialog-content .primary { font-size: 16px; padding: 13px 22px; }
-@media (max-width: 950px) {
-    .header { min-height: 104px; gap: 19px; }
-    .brand > span { font-size: 37px; }
-    .brand small { font-size: 10px; }
+.dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; }
+@media (min-width: 1219px) {
+    .hero { min-height: min(56vw, 780px); }
+    .hero-copy { padding-top: clamp(69px, 6vw, 95px); }
+}
+@media (max-width: 1060px) {
+    .header { gap: 20px; min-height: 102px; }
+    .brand > span { font-size: 39px; }
+    .brand small { font-size: 11px; }
     .navigation, .login { font-size: 15px; }
-    .hero { min-height: 575px; }
-    h1 { font-size: clamp(41px, 5.7vw, 58px); }
+    .hero { min-height: 610px; background-size: cover; }
+    .hero-copy { width: 51%; padding-top: 55px; }
+    h1 { font-size: clamp(43px, 5.4vw, 60px); }
     .intro { font-size: 18px; }
-    .primary { font-size: 16px; padding: 15px 19px; }
-    .symbol-link { font-size: 15px; }
-    .motto { font-size: 11px; letter-spacing: .18em; }
-    .direction { padding: 25px 18px 10px; }
+    .primary { min-height: 50px; padding: 14px 19px; font-size: 16px; }
+    .motto { font-size: 11px; letter-spacing: .19em; }
+    .direction { padding: 24px 18px 9px; }
     .direction-description { font-size: 15px; }
 }
-@media (max-width: 680px) {
-    .header { min-height: 0; display: grid; grid-template-columns: 1fr auto; gap: 15px; padding: 23px 23px 17px; }
-    .brand > span { font-size: clamp(31px, 8vw, 39px); }
-    .brand small { font-size: 10px; letter-spacing: .18em; }
-    .login { font-size: 15px; padding: 11px 17px; }
-    .navigation { grid-column: 1 / -1; margin: 0; flex-wrap: wrap; font-size: 14px; gap: 9px; }
-    .hero { grid-template-columns: 1fr; padding: 47px 23px 44px; min-height: 0; }
-    .hero-scenery { background-image: linear-gradient(180deg, rgba(19,25,25,.83),rgba(19,25,25,.38)),url('/images/sunrise-landscape.svg'); }
-    .eyebrow { margin-bottom: 24px; font-size: 12px; letter-spacing: .14em; }
-    h1 { font-size: clamp(40px, 10.1vw, 58px); margin-bottom: 26px; }
-    .intro { font-size: 18px; }
-    .hero-art { max-width: 530px; margin-top: 20px; }
-    .actions { margin-top: 21px; gap: 17px; }
-    .motto { margin-top: 29px; }
-    .path { min-height: 0; padding: 34px 23px 90px; }
-    .path::after { height: 120px; background-size: auto 400px; }
-    h2 { font-size: clamp(30px, 7.4vw, 39px); margin-bottom: 23px; }
+@media (max-width: 740px) {
+    .header { display: grid; grid-template-columns: 1fr auto; gap: 15px; min-height: 0; padding: 22px 23px 17px; }
+    .brand > span { font-size: clamp(32px, 8vw, 40px); }
+    .brand small { font-size: 10px; letter-spacing: .19em; }
+    .login { grid-column: 2; grid-row: 1; font-size: 15px; padding: 10px 15px; }
+    .navigation { grid-column: 1/-1; grid-row: 2; margin-left: 0; font-size: 14px; flex-wrap: wrap; gap: 8px; }
+    .hero { display: flex; flex-direction: column; min-height: 0; padding: 0 0 37px; background-image: url('/images/approved-hero-mobile.webp'); background-position: 50% 50%; background-size: cover; }
+    .hero::before { background: linear-gradient(180deg, #182020fa 0%, #202725c8 45%, #20272287 72%, #1d2520c2 100%); }
+    .hero-copy { order: 0; width: 100%; padding: 44px 23px 0; }
+    .eyebrow { font-size: 11px; letter-spacing: .16em; margin-bottom: 24px; }
+    h1 { font-size: clamp(41px, 10vw, 59px); margin-bottom: 24px; }
+    .intro { max-width: 620px; font-size: 18px; }
+    .actions { margin-top: 18px; gap: 19px; }
+    .primary { font-size: 16px; }
+    .symbol-link { font-size: 15px; }
+    .motto { margin-top: 31px; font-size: 10px; white-space: normal; }
+    .mobile-wolves { display: block; order: 1; width: min(96%, 530px); height: auto; margin: 10px auto 0; }
+    .path { min-height: 0; padding: 34px 23px 135px; }
+    .path::after { height: 125px; background-size: auto 100%; }
+    .path::before { width: 49%; opacity: .55; }
+    h2 { font-size: clamp(31px, 7.3vw, 41px); margin-bottom: 23px; }
     .directions { grid-template-columns: 1fr; }
-    .direction, .direction:first-child, .direction:last-child {
-        width: 100%; border-right: 0; border-bottom: 1px solid #9b80654f;
-        padding: 23px 0 25px;
-    }
+    .direction, .direction:first-child, .direction:last-child { width: 100%; padding: 22px 0; border: 0; border-bottom: 1px solid #a984585e; }
     .direction:last-child { border-bottom: 0; }
-    .direction-icon { height: 53px; }
-    .direction-icon svg { height: 43px; }
+    .direction-icon { height: 48px; }
+    .direction-icon svg { height: 45px; }
     .direction-name { font-size: 27px; }
     .direction-description { font-size: 16px; }
 }
-@media (max-width: 360px) {
-    .header, .hero, .path { padding-left: 17px; padding-right: 17px; }
-    h1 { font-size: 38px; }
+@media (max-width: 375px) {
+    .header, .hero-copy, .path { padding-left: 17px; padding-right: 17px; }
+    h1 { font-size: 39px; }
     .actions { gap: 12px; }
+    .primary { padding-inline: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
