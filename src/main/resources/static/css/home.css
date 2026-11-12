@@ -1,146 +1,115 @@
-:root {
-    color-scheme: light;
-    --dark: #151d1e;
-    --cream: #f5e9d8;
-    --paper: #f8efe3;
-    --ink: #292923;
-    --gold: #e6bb75;
-    --sepia: #86613a;
-}
+:root { color-scheme: light; --paper: #f8efe3; --ink: #292923; --gold: #e6bb75; --cream: #f5e9d8; --sepia: #86613a; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--paper); color: var(--ink); text-align: justify; text-justify: inter-word; }
-a { text-decoration: none; color: inherit; }
-button { font: inherit; cursor: pointer; color: inherit; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
 button, a { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-.page { width: 100%; max-width: none; margin: 0; overflow: clip; }
-.masthead { position: relative; isolation: isolate; background: #182221 url('/images/opora-masthead-clean.webp') center / 100% 100% no-repeat; }
-.header {
-    display: flex; align-items: center; gap: 35px; min-height: 116px;
-    padding: 17px 5.45%; background: transparent;
-    border-bottom: 0; color: var(--cream);
-}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+/* The entire masthead is one continuous scenic canvas. On large monitors
+   a softly enlarged copy fills the edges, while the center keeps the artwork's natural proportions. */
+.masthead { position: relative; isolation: isolate; overflow: hidden; background: #172223 url('/images/opora-panorama.webp') center / cover no-repeat; color: var(--cream); }
+.masthead::before, .masthead::after { content: none; }
+.header { position: relative; z-index: 2; }
+.header-inner { min-height: 112px; max-width: 1420px; margin: 0 auto; padding: 18px 5.5%; display: flex; align-items: center; gap: 30px; }
 .brand { flex-shrink: 0; text-align: left; }
-.brand > span { display: block; font: 400 50px Georgia, 'Times New Roman', serif; letter-spacing: .2em; line-height: 1.05; }
-.brand small { display: block; margin-top: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .27em; }
-.navigation { display: flex; align-items: center; gap: 11px; margin-left: auto; font-size: 19px; color: #eee7dc; white-space: nowrap; }
-.navigation a, .navigation button { background: transparent; border: 0; padding: 10px 0; }
-.login { padding: 14px 24px; border: 1px solid #e9cfb080; background: transparent; border-radius: 3px; font-size: 18px; white-space: nowrap; }
-.hero {
-    position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-start;
-    min-height: 680px; color: var(--cream);
-    background: transparent;
-}
-/* The scenic background is cleaned of embedded words; visible text is rendered as HTML. */
-.hero::before {
-    content: ''; position: absolute; z-index: -1; inset: 0;
-    background: linear-gradient(90deg, rgba(19,25,25,.86) 0%, rgba(23,28,27,.78) 23%, rgba(23,28,27,.55) 37%, rgba(24,29,28,.14) 54%, transparent 68%);
-    pointer-events: none;
-}
-.hero-copy { position: relative; z-index: 1; width: 53%; min-width: 0; padding: 69px 0 53px 5.5%; }
-.eyebrow { margin: 0 0 28px; font-size: 15px; letter-spacing: .23em; color: #e5b974; text-align: left; text-transform: uppercase; white-space: nowrap; }
+.brand span { display: block; font: 400 50px/1.06 Georgia, 'Times New Roman', serif; letter-spacing: .20em; }
+.brand small { display: block; margin-top: 10px; font-size: 13px; letter-spacing: .27em; text-transform: uppercase; }
+.navigation { display: flex; align-items: center; gap: 10px; margin-left: auto; font-size: 18px; white-space: nowrap; }
+.navigation button { padding: 9px 0; border: 0; background: transparent; }
+.navigation a { padding: 9px 0; }
+.login { padding: 13px 24px; font-size: 18px; white-space: nowrap; border: 1px solid #e9cfb080; border-radius: 4px; background: #111b1a2e; }
+/* The divider is intentionally subtle and follows the backdrop instead of creating a dark bar. */
+.header::after { content: ''; display: block; height: 1px; background: #c8b99b45; }
+.hero { position: relative; z-index: 1; }
+.hero-inner { max-width: 1420px; min-height: 675px; margin: 0 auto; padding: 63px 5.5% 55px; display: flex; align-items: flex-start; }
+.hero-copy { flex: 0 0 49%; min-width: 0; }
+.eyebrow { margin: 0 0 28px; color: var(--gold); font-size: 15px; letter-spacing: .23em; text-transform: uppercase; white-space: nowrap; text-align: left; }
 h1, h2, .direction-name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
-h1 { margin: 0 0 31px; font-size: clamp(43px, 5.05vw, 62px); line-height: 1.12; letter-spacing: -.023em; text-align: left; text-wrap: nowrap; }
-.intro { margin: 0; max-width: 470px; font-size: clamp(18px, 1.72vw, 21px); line-height: 1.64; color: #f3e9db; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
-.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; }
-.primary { display: inline-flex; align-items: center; justify-content: center; gap: 19px; background: var(--gold); color: #25271f; border: 0; border-radius: 3px; padding: 17px 28px; min-height: 65px; font-size: 18px; white-space: nowrap; text-align: center; }
-.primary span { font-size: 27px; line-height: 1; }
-.symbol-link { padding: 12px 0; border: 0; border-bottom: 1px solid #e7ddc4ac; background: transparent; box-shadow: none; color: #f4eee2; font-size: 17px; text-align: left; }
-.motto { margin: 48px 0 0; font-size: 14px; line-height: 1.7; letter-spacing: .24em; text-transform: uppercase; color: #ebe1d2; text-align: left; white-space: nowrap; }
+h1 { margin: 0 0 27px; font-size: clamp(46px, 4.3vw, 65px); line-height: 1.13; letter-spacing: -.02em; text-align: left; }
+.intro { margin: 0; max-width: 485px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.65; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 34px; }
+.primary { display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 17px 27px; min-height: 62px; border: 0; border-radius: 3px; background: var(--gold); color: #20251e; font-size: 18px; white-space: nowrap; text-align: center; }
+.primary span { font-size: 28px; line-height: 1; }
+.symbol-link { padding: 13px 0; font-size: 17px; border: 0; border-bottom: 1px solid #e7ddc4ac; background: transparent; box-shadow: none; text-align: left; }
+.motto { margin: 47px 0 0; font-size: 13px; line-height: 1.65; letter-spacing: .23em; text-transform: uppercase; text-align: left; }
 .mobile-wolves { display: none; }
-.path {
-    position: relative; min-height: 495px; overflow: hidden; padding: 39px 5.5% 155px;
-    color: var(--ink); background-color: var(--paper); scroll-margin-top: 8px;
-    background-image: radial-gradient(ellipse at 50% 30%, #fff8ef80, transparent 75%);
-}
-.path::before {
-    content: ''; position: absolute; z-index: 0; right: 0; top: 8px;
-    width: min(30%, 320px); height: 130px;
-    background: url('/images/approved-paper-peak.webp') right top / contain no-repeat;
-    opacity: .9; pointer-events: none;
-}
-.path::after {
-    content: ''; position: absolute; z-index: 0; inset: auto 0 0; height: 150px;
-    background: url('/images/approved-mountains.webp') bottom center / 100% 100% no-repeat;
-    opacity: .8; pointer-events: none;
-}
-.path-content { position: relative; z-index: 1; }
-h2 { margin: 0 0 23px; text-align: left; font-size: clamp(34px, 3.4vw, 47px); line-height: 1.23; }
+.navigation button:hover, .navigation a:hover, .symbol-link:hover { color: #f4cf92; }
+.primary:hover { background: #f1cd90; }
+
+/* Light book-like reading surface and soft mountain etchings remain intact. */
+.path { position: relative; overflow: hidden; min-height: 465px; background: var(--paper); padding: 39px max(5.5%, calc((100% - 1420px)/2 + 75px)) 155px; scroll-margin-top: 8px; }
+.path::before { position: absolute; content: ''; top: 6px; right: 0; width: min(30%, 320px); height: 130px; background: url('/images/approved-paper-peak.webp') right top / contain no-repeat; opacity: .84; pointer-events: none; }
+.path::after { position: absolute; content: ''; bottom: 0; left: 0; right: 0; height: 150px; background: url('/images/approved-mountains.webp') bottom center / cover no-repeat; opacity: .8; pointer-events: none; }
+.path-inner { position: relative; z-index: 1; max-width: 1270px; margin: 0 auto; }
+h2 { margin: 0 0 24px; font-size: clamp(32px, 3.15vw, 47px); line-height: 1.2; text-align: left; }
 .directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #9c754d88; }
-.direction { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 28px 28px 10px; border: 0; border-right: 1px solid #ae8f6b4c; background: transparent; text-align: left; }
+.direction { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 26px 23px 10px; border: 0; border-right: 1px solid #ae8f6b4c; background: transparent; text-align: left; }
 .direction:first-child { padding-left: 0; }
 .direction:last-child { padding-right: 0; border-right: 0; }
-.direction-icon { color: var(--sepia); height: 61px; flex-shrink: 0; }
-.direction-name { display: block; font-size: clamp(22px, 2.2vw, 29px); line-height: 1.25; }
-.direction-description { display: block; margin-top: 14px; width: 100%; max-width: 310px; font-size: 17px; line-height: 1.53; color: #3f413d; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
-.direction-arrow { display: block; margin-top: 15px; color: var(--sepia); font: 34px Georgia, serif; }
-.navigation a:hover, .navigation button:hover, .symbol-link:hover { color: #f0c985; }
-.primary:hover { background: #f2cb8e; }
+.direction-icon { height: 60px; flex-shrink: 0; color: var(--sepia); }
+.direction-name { display: block; font-size: clamp(22px, 2vw, 29px); line-height: 1.22; }
+.direction-description { display: block; width: 100%; max-width: 310px; margin-top: 13px; font-size: 17px; line-height: 1.53; color: #414039; text-indent: 1.5em; text-align: justify; text-align-last: auto; }
+.direction-arrow { display: block; margin-top: 15px; font: 34px Georgia, serif; color: var(--sepia); }
 .direction:hover .direction-name, .direction:hover .direction-arrow { color: #ad7737; }
-dialog { width: min(640px, calc(100% - 32px)); padding: 0; border: 1px solid #b8986a; border-radius: 7px; background: #f8efe3 url('/images/approved-mountains.webp') bottom center / 100% auto no-repeat; color: #292923; box-shadow: 0 24px 90px #070a0780; }
-dialog::backdrop { background: #040a07d8; }
-.dialog-content { padding: 34px 37px 88px; position: relative; }
-.dialog-content h2 { margin: 0 0 18px; font-size: 30px; }
-.dialog-content .dialog-paragraph { margin: 0 0 1em; font-size: 18px; line-height: 1.75; color: #3c403a; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
-.dialog-content .dialog-paragraph:last-child { margin-bottom: 0; }
-.dialog-content form { margin-top: 24px; }
-.dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; background: #e6bb75; color: #24251f; }
-@media (max-width: 1060px) {
-    .header { gap: 20px; min-height: 102px; }
-    .brand > span { font-size: 39px; }
-    .brand small { font-size: 11px; }
-    .navigation, .login { font-size: 15px; }
-    .hero { min-height: 610px; background-size: cover; }
-    .hero-copy { width: 54%; padding-top: 55px; }
-    h1 { font-size: clamp(40px, 5.2vw, 55px); }
-    .intro { font-size: 18px; }
-    .primary { min-height: 50px; padding: 14px 19px; font-size: 16px; }
-    .motto { font-size: 11px; letter-spacing: .19em; }
-    .direction { padding: 24px 18px 9px; }
-    .direction-description { font-size: 15px; }
+
+/* The symbol explanation uses the approved parchment palette. */
+dialog { width: min(640px, calc(100% - 28px)); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 0; color: var(--ink); background: var(--paper) url('/images/approved-mountains.webp') bottom center / 100% auto no-repeat; border: 1px solid #b8986a; border-radius: 7px; box-shadow: 0 24px 80px #05080588; }
+dialog::backdrop { background: #040a07c9; }
+.dialog-content { padding: 31px 35px 78px; }
+.dialog-content h2 { font-size: 30px; margin: 0 0 18px; }
+.dialog-paragraph { margin: 0 0 1em; font-size: 18px; line-height: 1.7; color: #3c403a; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
+.dialog-paragraph:last-child { margin-bottom: 0; }
+.dialog-content form { margin-top: 20px; }
+.dialog-content .primary { min-height: 46px; padding: 11px 24px; font-size: 16px; }
+
+@media (max-width: 1200px) {
+  .header-inner { gap: 20px; }
+  .hero-copy { flex-basis: 51%; }
+  h1 { font-size: clamp(42px, 5vw, 60px); }
+  .navigation, .login { font-size: 16px; }
+  .brand span { font-size: 42px; }
+  .brand small { font-size: 11px; }
+  .intro { font-size: 18px; }
+  .path { padding-left: 5.5%; padding-right: 5.5%; }
 }
 @media (max-width: 900px) {
-    .masthead { background: #182221 url('/images/approved-hero-mobile.webp') center / cover no-repeat; }
-    .header { display: grid; grid-template-columns: 1fr auto; gap: 15px; min-height: 0; padding: 22px 23px 17px; }
-    .brand > span { font-size: clamp(32px, 8vw, 40px); }
-    .brand small { font-size: 10px; letter-spacing: .19em; }
-    .login { grid-column: 2; grid-row: 1; font-size: 15px; padding: 10px 15px; }
-    .navigation { grid-column: 1/-1; grid-row: 2; margin-left: 0; font-size: 14px; flex-wrap: wrap; gap: 8px; }
-    .hero { display: flex; flex-direction: column; min-height: 0; padding: 0 0 37px; background-image: none; background-position: 50% 50%; background-size: cover; }
-    .hero::before { background: linear-gradient(180deg, #182020d8 0%, #20272591 45%, #2027225c 72%, #1d25209c 100%); }
-    .hero-copy { order: 0; width: 100%; padding: 44px 23px 0; }
-    .eyebrow { font-size: 11px; letter-spacing: .16em; margin-bottom: 24px; }
-    h1 { font-size: clamp(38px, 8vw, 57px); margin-bottom: 24px; text-wrap: balance; }
-    .intro { max-width: 620px; font-size: 18px; }
-    .actions { margin-top: 18px; gap: 19px; }
-    .primary { font-size: 16px; }
-    .symbol-link { font-size: 15px; }
-    .motto { margin-top: 31px; font-size: 10px; white-space: normal; }
-    .mobile-wolves { display: block; order: 1; width: min(90%, 500px); height: auto; margin: 10px auto 0; }
-    .path { min-height: 0; padding: 34px 23px 135px; }
-    .path::after { height: 125px; background-size: auto 100%; }
-    .path::before { width: 49%; opacity: .55; }
-    h2 { font-size: clamp(31px, 7.3vw, 41px); margin-bottom: 23px; }
-    .directions { grid-template-columns: 1fr; }
-    .direction, .direction:first-child, .direction:last-child { width: 100%; padding: 22px 0; border: 0; border-bottom: 1px solid #a984585e; }
-    .direction:last-child { border-bottom: 0; }
-    .direction-icon { height: 48px; }
-    .direction-icon svg { height: 45px; }
-    .direction-name { font-size: 27px; }
-    .direction-description { font-size: 16px; }
+  .masthead { background: #182221 url('/images/approved-hero-mobile.webp') center / cover no-repeat; }
+  .header-inner { min-height: 0; display: grid; grid-template-columns: 1fr auto; column-gap: 15px; row-gap: 13px; padding: 20px 24px; }
+  .brand span { font-size: clamp(32px, 6vw, 41px); }
+  .brand small { font-size: 10px; }
+  .login { grid-column: 2; grid-row: 1; padding: 10px 16px; font-size: 15px; }
+  .navigation { grid-column: 1/-1; grid-row: 2; margin: 0; font-size: 14px; flex-wrap: wrap; }
+  .hero-inner { min-height: 0; padding: 44px 24px 35px; flex-direction: column; }
+  .hero-copy { width: 100%; flex: auto; }
+  .eyebrow { font-size: 12px; letter-spacing: .18em; margin-bottom: 22px; }
+  h1 { font-size: clamp(39px, 6.5vw, 59px); }
+  .intro { max-width: 660px; font-size: 18px; }
+  .actions { margin-top: 24px; gap: 19px; }
+  .primary { padding: 13px 20px; min-height: 52px; font-size: 16px; }
+  .symbol-link { font-size: 15px; }
+  .motto { margin-top: 30px; font-size: 11px; letter-spacing: .17em; }
+  .mobile-wolves { display: block; max-width: 520px; width: min(100%, 520px); height: auto; align-self: center; margin-top: 17px; }
+  .path { padding: 35px 24px 130px; }
+  .path::after { height: 120px; background-size: auto 100%; }
+  .directions { grid-template-columns: 1fr; }
+  .direction, .direction:first-child, .direction:last-child { width: 100%; padding: 23px 0; border: 0; border-bottom: 1px solid #ae8f6b4c; }
+  .direction:last-child { border-bottom: 0; }
+  .direction-icon { height: 50px; }
+  .direction-icon svg { height: 45px; }
+  .direction-name { font-size: 26px; }
+  .direction-description { font-size: 16px; }
 }
-@media (max-width: 375px) {
-    .header, .hero-copy, .path { padding-left: 17px; padding-right: 17px; }
-    h1 { font-size: 39px; }
-    .actions { gap: 12px; }
-    .primary { padding-inline: 14px; }
+@media (max-width: 420px) {
+  .header-inner, .hero-inner, .path { padding-left: 18px; padding-right: 18px; }
+  .brand span { font-size: 32px; }
+  .brand small { letter-spacing: .16em; }
+  h1 { font-size: clamp(36px, 10vw, 44px); }
+  .eyebrow { font-size: 11px; letter-spacing: .12em; white-space: normal; }
+  .motto { font-size: 10px; white-space: normal; }
+  .dialog-content { padding: 25px 22px 68px; }
+  .dialog-content h2 { font-size: 27px; }
+  .dialog-paragraph { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-/* Calm parchment dialog on narrow screens, keeping the mountain illustration visible. */
-@media (max-width: 740px) {
-    .dialog-content { padding: 26px 23px 78px; }
-    .dialog-content h2 { font-size: 27px; }
-    .dialog-content .dialog-paragraph { font-size: 16px; line-height: 1.65; }
-}
