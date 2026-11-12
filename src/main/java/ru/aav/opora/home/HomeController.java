@@ -13,4 +13,9 @@ public class HomeController {
         model.addAttribute("projectIdea", "Пережить. Осмыслить. Создавать.");
         return "home";
     }
+    // Отдельная страница открывается и по карточке, и по прямому адресу.
+    @GetMapping("/stability")
+    public String stability() {
+        return "stability";
+    }
 }
