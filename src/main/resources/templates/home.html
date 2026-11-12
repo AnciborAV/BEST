@@ -10,40 +10,61 @@
 </head>
 <body>
 <div class="page">
-    <header class="header">
-        <a class="brand" th:href="@{/}" aria-label="ОПОРА - на главную">
-            <span th:text="${projectName}">ОПОРА</span>
-            <small>Сила быть собой</small>
-        </a>
-        <nav class="navigation" aria-label="Основная навигация">
-            <a href="#path">Путь</a><span aria-hidden="true">·</span>
-            <button type="button" data-section="Практики">Практики</button><span aria-hidden="true">·</span>
-            <button type="button" data-section="Библиотека">Библиотека</button>
-        </nav>
-        <button class="login" type="button" data-section="Войти">Войти</button>
-    </header>
-    <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
-                <h1 id="hero-title">Какого волка<br>ты кормишь?</h1>
-                <p class="intro">Внутри нас есть боль и надежда, страх и мужество. Каждый день мы выбираем, чему давать силу.</p>
-                <div class="actions">
-                    <a class="primary" href="#path">Найти свою опору <span aria-hidden="true">↗</span></a>
-                    <button class="symbol-link" type="button" id="symbol-open">Смысл символа</button>
+    <div class="dark-landscape">
+        <header class="header">
+            <a class="brand" th:href="@{/}" aria-label="ОПОРА - на главную">
+                <span th:text="${projectName}">ОПОРА</span>
+                <small>Сила быть собой</small>
+            </a>
+            <nav class="navigation" aria-label="Основная навигация">
+                <a href="#path">Путь</a><span aria-hidden="true">·</span>
+                <button type="button" data-section="Практики">Практики</button><span aria-hidden="true">·</span>
+                <button type="button" data-section="Библиотека">Библиотека</button>
+            </nav>
+            <button class="login" type="button" data-section="Войти">Войти</button>
+        </header>
+        <main>
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-copy">
+                    <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
+                    <h1 id="hero-title">Какого волка<br>ты кормишь?</h1>
+                    <p class="intro">Внутри нас есть боль и надежда, страх и мужество. Каждый день мы выбираем, чему давать силу.</p>
+                    <div class="actions">
+                        <a class="primary" href="#path">Найти свою опору <span aria-hidden="true">↗</span></a>
+                        <button class="symbol-link" type="button" id="symbol-open">Смысл символа</button>
+                    </div>
+                    <p class="motto" th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
                 </div>
-                <p class="motto" th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
-            </div>
-            <img class="wolf" th:src="@{/images/wolf.jpg}" width="850" height="850"
-                 alt="Светлый и тёмный волки в едином круге над лесом, горами и рассветом. The one you feed."
-                 fetchpriority="high">
-        </section>
+                <div class="symbol-frame">
+                    <img class="wolf" th:src="@{/images/wolf.jpg}" width="850" height="850"
+                         alt="Светлый и тёмный волки в едином круге над лесом, горами и рассветом. The one you feed."
+                         fetchpriority="high">
+                </div>
+            </section>
+        </div>
         <section class="path" id="path" aria-labelledby="path-title">
-            <h2 id="path-title">С чего начинается твой путь?</h2>
-            <div class="directions">
-                <button type="button" data-section="Пережить трудное">Пережить трудное <span aria-hidden="true">↗</span></button>
-                <button type="button" data-section="Вернуть устойчивость">Вернуть устойчивость <span aria-hidden="true">↗</span></button>
-                <button type="button" data-section="Найти направление">Найти направление <span aria-hidden="true">↗</span></button>
+            <div class="path-content">
+                <h2 id="path-title">С чего начинается твой путь?</h2>
+                <div class="directions">
+                    <button type="button" data-section="Пережить трудное">
+                        <span class="direction-icon" aria-hidden="true">△</span>
+                        <span class="direction-name">Пережить трудное</span>
+                        <span class="direction-description">Принять реальность, сохранить внутреннюю силу и опору.</span>
+                        <span class="direction-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button type="button" data-section="Вернуть устойчивость">
+                        <span class="direction-icon" aria-hidden="true">✧</span>
+                        <span class="direction-name">Вернуть устойчивость</span>
+                        <span class="direction-description">Восстановить ресурс, ясность и внутреннее равновесие.</span>
+                        <span class="direction-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button type="button" data-section="Найти направление">
+                        <span class="direction-icon" aria-hidden="true">▤</span>
+                        <span class="direction-name">Найти направление</span>
+                        <span class="direction-description">Сформулировать смысл, цели и свой дальнейший путь.</span>
+                        <span class="direction-arrow" aria-hidden="true">→</span>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
