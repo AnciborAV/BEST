@@ -1,84 +1,77 @@
 <!doctype html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="ОПОРА - сила быть собой. Пережить. Осмыслить. Создавать.">
-    <title th:text="${projectName}">ОПОРА</title>
-    <link rel="stylesheet" href="/css/home.css?v=approved-art-9-unified" th:href="@{/css/home.css(v='approved-art-9-unified')}">
-    <script defer src="/js/home.js" th:src="@{/js/home.js}"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ОПОРА - сила быть собой. Пережить. Осмыслить. Создавать.">
+  <title th:text="${projectName}">ОПОРА</title>
+  <link rel="stylesheet" href="/css/home.css?v=approved-v10" th:href="@{/css/home.css(v='approved-v10')}">
+  <script defer src="/js/home.js" th:src="@{/js/home.js}"></script>
 </head>
 <body>
-<div class="page">
-    <main>
-    <div class="masthead">
+<main>
+  <div class="masthead">
     <header class="header">
+      <div class="header-inner">
         <a class="brand" href="/" th:href="@{/}" aria-label="ОПОРА - на главную">
-            <span th:text="${projectName}">ОПОРА</span>
-            <small>Сила быть собой</small>
+          <span th:text="${projectName}">ОПОРА</span><small>Сила быть собой</small>
         </a>
         <nav class="navigation" aria-label="Основная навигация">
-            <a href="#path">Путь</a><span aria-hidden="true">·</span>
-            <button type="button" data-section="Практики">Практики</button><span aria-hidden="true">·</span>
-            <button type="button" data-section="Библиотека">Библиотека</button>
+          <a href="#path">Путь</a><span aria-hidden="true">·</span>
+          <button type="button" data-section="Практики">Практики</button><span aria-hidden="true">·</span>
+          <button type="button" data-section="Библиотека">Библиотека</button>
         </nav>
-        <button class="login" type="button" data-section="Войти">Войти</button>
+        <button type="button" class="login" data-section="Войти">Войти</button>
+      </div>
     </header>
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
-                <h1 id="hero-title">Какого волка<br>ты кормишь?</h1>
-                <p class="intro">Внутри нас есть боль и надежда, страх и мужество. Каждый день мы выбираем, чему давать силу.</p>
-                <div class="actions">
-                    <a class="primary" href="#path">Найти свою опору <span aria-hidden="true">↗</span></a>
-                    <button class="symbol-link" type="button" id="symbol-open">Смысл символа</button>
-                </div>
-                <p class="motto" th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
-            </div>
-            <!-- The approved wolf emblem is part of the scenic artwork on desktop. -->
-            <img class="mobile-wolves" src="/images/approved-wolves.webp" th:src="@{/images/approved-wolves.webp}"
-                 width="555" height="605" alt="Два волка в золотом круге на фоне горного рассвета" loading="eager">
-        </section>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
+          <h1 id="hero-title">Какого волка<br>ты кормишь?</h1>
+          <p class="intro">Внутри нас есть боль и надежда, страх и мужество. Каждый день мы выбираем, чему давать силу.</p>
+          <div class="actions">
+            <a class="primary" href="#path">Найти свою опору <span aria-hidden="true">↗</span></a>
+            <button type="button" class="symbol-link" id="symbol-open">Смысл символа</button>
+          </div>
+          <p class="motto" th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
+        </div>
+        <img class="mobile-wolves" src="/images/approved-wolves.webp" th:src="@{/images/approved-wolves.webp}" width="555" height="605" alt="Два волка в золотом круге на фоне горного рассвета" fetchpriority="high">
+      </div>
+    </section>
+  </div>
+  <section class="path" id="path" aria-labelledby="path-title">
+    <div class="path-inner">
+      <h2 id="path-title">С чего начинается твой путь?</h2>
+      <div class="directions">
+        <button class="direction" type="button" data-section="Пережить трудное">
+          <svg class="direction-icon" width="74" height="57" viewBox="0 0 74 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 52 28 13 42 33 52 21 71 52M14 36l14-17 8 12M44 32l8-7 8 13"/></svg>
+          <span class="direction-name">Пережить трудное</span>
+          <span class="direction-description">Принять реальность, сохранить внутреннюю силу и опору.</span>
+          <span class="direction-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="direction" type="button" data-section="Вернуть устойчивость">
+          <svg class="direction-icon" width="67" height="57" viewBox="0 0 67 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="33" cy="28" r="24"/><path d="M33 8v6M33 42v6M13 28h6M47 28h6M25 35l7-16 10-7-7 16-10 7Z"/></svg>
+          <span class="direction-name">Вернуть устойчивость</span>
+          <span class="direction-description">Восстановить ресурс, ясность и внутреннее равновесие.</span>
+          <span class="direction-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="direction" type="button" data-section="Найти направление">
+          <svg class="direction-icon" width="70" height="57" viewBox="0 0 70 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M35 12c-11-7-19-7-29-5v38c12-3 20-1 29 5 9-6 17-8 29-5V7c-10-2-18-2-29 5ZM35 12v38M12 17c7-1 13 1 18 4M12 25c7-1 13 1 18 4M58 17c-7-1-13 1-18 4M58 25c-7-1-13 1-18 4"/></svg>
+          <span class="direction-name">Найти направление</span>
+          <span class="direction-description">Сформулировать смысл, цели и свой дальнейший путь.</span>
+          <span class="direction-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
-        <section class="path" id="path" aria-labelledby="path-title">
-            <div class="path-content">
-                <h2 id="path-title">С чего начинается твой путь?</h2>
-                <div class="directions">
-                    <button class="direction" type="button" data-section="Пережить трудное">
-                        <svg class="direction-icon" width="74" height="57" viewBox="0 0 74 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 52 28 13 42 33 52 21 71 52M14 36l14-17 8 12M44 32l8-7 8 13"/>
-                        </svg>
-                        <span class="direction-name">Пережить трудное</span>
-                        <span class="direction-description">Принять реальность, сохранить внутреннюю силу и опору.</span>
-                        <span class="direction-arrow" aria-hidden="true">→</span>
-                    </button>
-                    <button class="direction" type="button" data-section="Вернуть устойчивость">
-                        <svg class="direction-icon" width="67" height="57" viewBox="0 0 67 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="33" cy="28" r="24"/><path d="M33 8v6M33 42v6M13 28h6M47 28h6M25 35l7-16 10-7-7 16-10 7Z"/>
-                        </svg>
-                        <span class="direction-name">Вернуть устойчивость</span>
-                        <span class="direction-description">Восстановить ресурс, ясность и внутреннее равновесие.</span>
-                        <span class="direction-arrow" aria-hidden="true">→</span>
-                    </button>
-                    <button class="direction" type="button" data-section="Найти направление">
-                        <svg class="direction-icon" width="70" height="57" viewBox="0 0 70 57" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M35 12c-11-7-19-7-29-5v38c12-3 20-1 29 5 9-6 17-8 29-5V7c-10-2-18-2-29 5ZM35 12v38M12 17c7-1 13 1 18 4M12 25c7-1 13 1 18 4M58 17c-7-1-13 1-18 4M58 25c-7-1-13 1-18 4"/>
-                        </svg>
-                        <span class="direction-name">Найти направление</span>
-                        <span class="direction-description">Сформулировать смысл, цели и свой дальнейший путь.</span>
-                        <span class="direction-arrow" aria-hidden="true">→</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </main>
-</div>
+  </section>
+</main>
 <dialog id="info-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-content">
-        <h2 id="dialog-title">Смысл символа</h2>
-        <div id="dialog-text" class="dialog-text"></div>
-        <form method="dialog"><button class="primary" type="submit">Закрыть</button></form>
-    </div>
+  <div class="dialog-content">
+    <h2 id="dialog-title">Смысл символа</h2>
+    <div class="dialog-text" id="dialog-text"></div>
+    <form method="dialog"><button type="submit" class="primary">Закрыть</button></form>
+  </div>
 </dialog>
 </body>
 </html>

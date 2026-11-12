@@ -1,17 +1,15 @@
-// Одна модальная форма служит для символа и будущих тематических разделов.
+// Один диалог для символа и временных информационных разделов.
 const infoDialog = document.getElementById('info-dialog');
 const dialogTitle = document.getElementById('dialog-title');
 const dialogText = document.getElementById('dialog-text');
 
 function showInformation(title, message) {
     dialogTitle.textContent = title;
-    // Каждый абзац создаётся отдельно, чтобы красная строка применялась к каждому из них.
-    // Используем textContent, а не innerHTML, чтобы не интерпретировать текст как разметку.
     const paragraphs = message.split(/\n\s*\n/).map(paragraph => {
-        const element = document.createElement('p');
-        element.className = 'dialog-paragraph';
-        element.textContent = paragraph.trim();
-        return element;
+        const item = document.createElement('p');
+        item.className = 'dialog-paragraph';
+        item.textContent = paragraph.trim();
+        return item;
     });
     dialogText.replaceChildren(...paragraphs);
     infoDialog.showModal();
