@@ -1,0 +1,16 @@
+# Optional Blueprint alternative to manual setup. Create the service only once.
+services:
+  - type: web
+    name: opora-web
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: master
+    autoDeployTrigger: checksPass
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: SERVER_ADDRESS
+        value: 0.0.0.0
