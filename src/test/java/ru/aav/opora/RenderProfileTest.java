@@ -26,7 +26,8 @@ class RenderProfileTest {
             .startsWith("jdbc:h2:mem:opora-render;");
         assertThat(environment.getProperty("server.address")).isEqualTo("0.0.0.0");
         for (String path : new String[] {"/", "/stability", "/hardship", "/direction",
-                "/practices", "/css/reading-size.css", "/css/practices.css", "/js/practices.js"}) {
+                "/practices", "/library", "/css/reading-size.css", "/css/practices.css", "/js/practices.js",
+                "/css/library.css", "/js/library.js"}) {
             mvc.perform(get(path)).andExpect(status().isOk());
         }
     }
