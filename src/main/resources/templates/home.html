@@ -3,13 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ОПОРА - сила быть собой. Пережить. Осмыслить. Создавать.">
     <title th:text="${projectName}">ОПОРА</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <script defer th:src="@{/js/home.js}"></script>
 </head>
 <body>
-<main>
-    <h1 th:text="${projectName}">ОПОРА</h1>
-    <p th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
-    <p>Мы создаём пространство для личностного роста и осмысленной жизни.</p>
-</main>
+<div class="page">
+    <header class="header">
+        <a class="brand" th:href="@{/}" aria-label="ОПОРА - на главную">
+            <span th:text="${projectName}">ОПОРА</span>
+            <small>Сила быть собой</small>
+        </a>
+        <nav class="navigation" aria-label="Основная навигация">
+            <a href="#path">Путь</a><span aria-hidden="true">·</span>
+            <button type="button" data-section="Практики">Практики</button><span aria-hidden="true">·</span>
+            <button type="button" data-section="Библиотека">Библиотека</button>
+        </nav>
+        <button class="login" type="button" data-section="Войти">Войти</button>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
+                <h1 id="hero-title">Какого волка<br>ты кормишь?</h1>
+                <p class="intro">Внутри нас есть боль и надежда, страх и мужество. Каждый день мы выбираем, чему давать силу.</p>
+                <div class="actions">
+                    <a class="primary" href="#path">Найти свою опору <span aria-hidden="true">↗</span></a>
+                    <button class="symbol-link" type="button" id="symbol-open">Смысл символа</button>
+                </div>
+                <p class="motto" th:text="${projectIdea}">Пережить. Осмыслить. Создавать.</p>
+            </div>
+            <img class="wolf" th:src="@{/images/wolf.jpg}" width="850" height="850"
+                 alt="Светлый и тёмный волки в едином круге над лесом, горами и рассветом. The one you feed."
+                 fetchpriority="high">
+        </section>
+        <section class="path" id="path" aria-labelledby="path-title">
+            <h2 id="path-title">С чего начинается твой путь?</h2>
+            <div class="directions">
+                <button type="button" data-section="Пережить трудное">Пережить трудное <span aria-hidden="true">↗</span></button>
+                <button type="button" data-section="Вернуть устойчивость">Вернуть устойчивость <span aria-hidden="true">↗</span></button>
+                <button type="button" data-section="Найти направление">Найти направление <span aria-hidden="true">↗</span></button>
+            </div>
+        </section>
+    </main>
+</div>
+<dialog id="info-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+        <h2 id="dialog-title">Смысл символа</h2>
+        <p id="dialog-text"></p>
+        <form method="dialog"><button class="primary" type="submit">Закрыть</button></form>
+    </div>
+</dialog>
 </body>
 </html>

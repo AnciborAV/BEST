@@ -48,4 +48,32 @@ class OporaApplicationTest {
         assertThat(tables).isZero();
         mvc.perform(get("/books")).andExpect(status().isNotFound());
     }
+
+    @Test
+    void restartsWithExistingLowercaseH2Database(
+        @org.junit.jupiter.api.io.TempDir java.nio.file.Path directory
+    ) {
+        String url = "jdbc:h2:file:" + directory.resolve("restart")
+            + ";MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH";
+        String[] arguments = {
+            "--spring.datasource.url=" + url,
+            "--spring.datasource.username=sa",
+            "--spring.datasource.password=",
+            "--spring.main.banner-mode=off"
+        };
+        // Первый запуск создаёт служебные таблицы Liquibase и тестовые данные.
+        try (var first = new org.springframework.boot.builder.SpringApplicationBuilder(OporaApplication.class)
+                .web(org.springframework.boot.WebApplicationType.NONE).run(arguments)) {
+            var database = first.getBean(JdbcTemplate.class);
+            database.execute("CREATE TABLE restart_marker (id INTEGER PRIMARY KEY)");
+            database.update("INSERT INTO restart_marker(id) VALUES (1)");
+        }
+        // Второй запуск должен узнать существующие таблицы и сохранить данные.
+        try (var second = new org.springframework.boot.builder.SpringApplicationBuilder(OporaApplication.class)
+                .web(org.springframework.boot.WebApplicationType.NONE).run(arguments)) {
+            var database = second.getBean(JdbcTemplate.class);
+            assertThat(database.queryForObject("SELECT COUNT(*) FROM restart_marker", Long.class)).isEqualTo(1L);
+            assertThat(database.queryForObject("SELECT COUNT(*) FROM databasechangelog", Long.class)).isZero();
+        }
+    }
 }
