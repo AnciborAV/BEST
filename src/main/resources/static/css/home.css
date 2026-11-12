@@ -46,7 +46,7 @@ h1 { margin: 0 0 31px; font-size: clamp(43px, 5.05vw, 62px); line-height: 1.12; 
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; }
 .primary { display: inline-flex; align-items: center; justify-content: center; gap: 19px; background: var(--gold); color: #25271f; border: 0; border-radius: 3px; padding: 17px 28px; min-height: 65px; font-size: 18px; white-space: nowrap; text-align: center; }
 .primary span { font-size: 27px; line-height: 1; }
-.symbol-link { padding: 12px 0; border: 0; border-bottom: 1px solid #e7ddc4ac; background: #222621d9; box-shadow: 0 0 10px 8px #222621a1; color: #f4eee2; font-size: 17px; text-align: left; }
+.symbol-link { padding: 12px 0; border: 0; border-bottom: 1px solid #e7ddc4ac; background: transparent; box-shadow: none; color: #f4eee2; font-size: 17px; text-align: left; }
 .motto { margin: 48px 0 0; font-size: 14px; line-height: 1.7; letter-spacing: .24em; text-transform: uppercase; color: #ebe1d2; text-align: left; white-space: nowrap; }
 .mobile-wolves { display: none; }
 .path {
