@@ -24,4 +24,10 @@ public class HomeController {
     public String hardship() {
         return "hardship";
     }
+
+    // Третье направление: личные ориентиры и план доступного действия.
+    @GetMapping("/direction")
+    public String direction() {
+        return "direction";
+    }
 }
