@@ -35,4 +35,9 @@ public class HomeController {
     public String practices() {
         return "practices";
     }
+    // Авторские тексты с выбором материала на одной странице.
+    @GetMapping("/library")
+    public String library() {
+        return "library";
+    }
 }
