@@ -113,3 +113,29 @@ dialog::backdrop { background: #040a07c9; }
   .dialog-paragraph { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Книжное окно: текст остается обычным HTML, иллюстрация сохраняет пропорции. */
+dialog.symbol-story { width: min(880px, calc(100% - 32px)); background: #fbf6ec; border-color: #c8b99e; }
+.dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #d8cbb7; padding-bottom: 16px; margin-bottom: 25px; }
+.dialog-header h2 { margin: 0; font-size: 25px; }
+.dialog-dismiss { flex: 0 0 44px; height: 44px; padding: 0; border: 1px solid #d8cbb7; border-radius: 50%; background: transparent; font-size: 28px; line-height: 1; }
+.symbol-story .dialog-content { padding: 26px 48px 35px; }
+.story-heading { text-align: center; }
+.story-heading > span { color: #8c6d43; font: 11px/1.5 Arial, sans-serif; letter-spacing: .25em; }
+.story-heading h3 { font: 400 clamp(27px, 4vw, 37px)/1.25 Georgia, serif; margin: 8px 0 22px; }
+.story-image { display: block; width: 100%; height: auto; border-radius: 3px; margin-bottom: 26px; }
+.symbol-story .dialog-paragraph { font: 18px/1.8 Georgia, 'Times New Roman', serif; color: #433c32; hyphens: auto; overflow-wrap: break-word; }
+.story-section { margin-top: 27px; }
+.story-section h3 { display: flex; align-items: baseline; gap: 13px; font: 400 24px/1.35 Georgia, serif; color: #594a35; text-align: left; text-indent: 0; margin: 0 0 13px; }
+.story-section h3 span { color: #a18358; font: 12px Arial, sans-serif; letter-spacing: .06em; }
+.story-draft { padding: 16px; margin-top: 20px; background: #f1e9dc; color: #706453; font: italic 15px/1.6 Georgia, serif; text-align: left; }
+.symbol-story form { border-top: 1px solid #d8cbb7; padding-top: 20px; text-align: right; }
+@media (max-width: 600px) {
+ dialog.symbol-story { width: calc(100% - 16px); max-height: calc(100dvh - 16px); }
+ .symbol-story .dialog-content { padding: 18px 20px 24px; }
+ .dialog-header { margin-bottom: 20px; padding-bottom: 12px; }
+ .dialog-header h2 { font-size: 22px; }
+ .story-heading h3 { font-size: 28px; }
+ .symbol-story .dialog-paragraph { font-size: 16px; line-height: 1.75; }
+ .story-section h3 { font-size: 21px; gap: 10px; }
+}

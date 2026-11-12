@@ -15,10 +15,16 @@ function showInformation(title, message) {
     infoDialog.showModal();
 }
 
+// Копируем книжную разметку только для объяснения символа.
 document.getElementById('symbol-open').addEventListener('click', () => {
-    showInformation('Смысл символа',
-        'Два волка в одном круге - образ нашей внутренней сложности. Боль и надежда, страх и мужество могут жить рядом.\n\nВсем чувствам есть место. Каждый день мы выбираем, каким поступкам давать силу.');
+    dialogTitle.textContent = 'Смысл символа';
+    dialogText.replaceChildren(document.getElementById('symbol-story').content.cloneNode(true));
+    infoDialog.classList.add('symbol-story');
+    infoDialog.showModal();
+    infoDialog.scrollTop = 0;
 });
+document.querySelector('.dialog-dismiss').addEventListener('click', () => infoDialog.close());
+infoDialog.addEventListener('close', () => infoDialog.classList.remove('symbol-story'));
 
 document.querySelectorAll('[data-section]').forEach(button => {
     button.addEventListener('click', () => {
