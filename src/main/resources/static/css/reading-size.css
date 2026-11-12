@@ -1,0 +1,33 @@
+/* Общая читабельность направлений. Заголовки сохраняют одобренные размеры. */
+:root{--reading-body:20px;--reading-card:20px;--reading-note:18px;--reading-link:18px;--reading-label:12px;--reading-line:1.75}
+.reading p{font-size:var(--reading-body);line-height:var(--reading-line)}
+.reading .lead{font-size:22px;line-height:1.7}
+.hero p{font-size:20px;line-height:1.75}
+.practice-steps p{font-size:var(--reading-card);line-height:var(--reading-line)}
+.practice-end{font-size:18px;line-height:1.75;color:#5e5548}
+.reading .gentle-note{font-size:var(--reading-note);line-height:1.75;color:#59574f}
+.support p{font-size:var(--reading-note);line-height:1.8;color:#59574f}
+.text-link,.related .text-link{font-size:var(--reading-link);line-height:1.6;min-height:48px}
+.small-label,.chapter-label>span,.card-caption,.related .small-label{font-size:var(--reading-label);line-height:1.6;color:#80613c}
+.hero-meta{font-size:15px;line-height:1.6}
+.page-nav a{font-size:16px;line-height:1.5}
+.page-nav a span,.question>span,.practice-steps li:before{font-size:13px}
+.breadcrumb{font-size:14px;line-height:1.5}
+.home-link{font-size:16px;line-height:1.5}
+.footer>.wrap>a:last-child{font-size:16px;line-height:1.5;min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:1000px){.page-nav a{font-size:15px}}
+@media(max-width:650px){
+ :root{--reading-body:19px;--reading-card:18px;--reading-note:17px;--reading-link:17px;--reading-label:12px}
+ .reading .lead{font-size:21px;line-height:1.7}
+ .hero p{font-size:18px;line-height:1.8}
+ .practice-end{font-size:17px;line-height:1.75}
+ .page-nav a{font-size:13px;line-height:1.5}
+ .page-nav a span{font-size:12px}
+ .hero-meta{font-size:14px}
+ .breadcrumb{font-size:12px}
+ .home-link{font-size:13px;max-width:125px}
+ .text-link,.related .text-link{gap:12px;max-width:100%;white-space:normal;align-items:center}
+ .text-link>span{flex-shrink:0}
+ .footer>.wrap>a:last-child{font-size:15px}
+}
+@media(max-width:360px){.home-link{font-size:12px;max-width:105px}.page-nav a{font-size:12px}}
