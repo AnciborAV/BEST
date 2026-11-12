@@ -5,7 +5,15 @@ const dialogText = document.getElementById('dialog-text');
 
 function showInformation(title, message) {
     dialogTitle.textContent = title;
-    dialogText.textContent = message;
+    // Каждый абзац создаётся отдельно, чтобы красная строка применялась к каждому из них.
+    // Используем textContent, а не innerHTML, чтобы не интерпретировать текст как разметку.
+    const paragraphs = message.split(/\\n\\s*\\n/).map(paragraph => {
+        const element = document.createElement('p');
+        element.className = 'dialog-paragraph';
+        element.textContent = paragraph.trim();
+        return element;
+    });
+    dialogText.replaceChildren(...paragraphs);
     infoDialog.showModal();
 }
 

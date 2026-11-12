@@ -41,7 +41,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .eyebrow { margin: 0 0 28px; font-size: 15px; letter-spacing: .23em; color: #e5b974; text-align: left; text-transform: uppercase; white-space: nowrap; }
 h1, h2, .direction-name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
 h1 { margin: 0 0 31px; font-size: clamp(43px, 5.05vw, 62px); line-height: 1.12; letter-spacing: -.023em; text-align: left; text-wrap: nowrap; }
-.intro { margin: 0; max-width: 470px; font-size: clamp(18px, 1.72vw, 21px); line-height: 1.64; color: #f3e9db; }
+.intro { margin: 0; max-width: 470px; font-size: clamp(18px, 1.72vw, 21px); line-height: 1.64; color: #f3e9db; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; }
 .primary { display: inline-flex; align-items: center; justify-content: center; gap: 19px; background: var(--gold); color: #25271f; border: 0; border-radius: 3px; padding: 17px 28px; min-height: 65px; font-size: 18px; white-space: nowrap; text-align: center; }
 .primary span { font-size: 27px; line-height: 1; }
@@ -72,7 +72,7 @@ h2 { margin: 0 0 23px; text-align: left; font-size: clamp(34px, 3.4vw, 47px); li
 .direction:last-child { padding-right: 0; border-right: 0; }
 .direction-icon { color: var(--sepia); height: 61px; flex-shrink: 0; }
 .direction-name { display: block; font-size: clamp(22px, 2.2vw, 29px); line-height: 1.25; }
-.direction-description { display: block; margin-top: 14px; width: 100%; max-width: 310px; font-size: 17px; line-height: 1.53; color: #3f413d; text-align: justify; }
+.direction-description { display: block; margin-top: 14px; width: 100%; max-width: 310px; font-size: 17px; line-height: 1.53; color: #3f413d; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
 .direction-arrow { display: block; margin-top: 15px; color: var(--sepia); font: 34px Georgia, serif; }
 .navigation a:hover, .navigation button:hover, .symbol-link:hover { color: #f0c985; }
 .primary:hover { background: #f2cb8e; }
@@ -81,7 +81,8 @@ dialog { width: min(640px, calc(100% - 32px)); padding: 0; border: 1px solid #b8
 dialog::backdrop { background: #040a07d8; }
 .dialog-content { padding: 34px 37px 88px; position: relative; }
 .dialog-content h2 { margin: 0 0 18px; font-size: 30px; }
-.dialog-content p { font-size: 18px; line-height: 1.75; white-space: pre-line; color: #3c403a; text-align: justify; }
+.dialog-content .dialog-paragraph { margin: 0 0 1em; font-size: 18px; line-height: 1.75; color: #3c403a; text-align: justify; text-align-last: auto; text-indent: 1.5em; }
+.dialog-content .dialog-paragraph:last-child { margin-bottom: 0; }
 .dialog-content form { margin-top: 24px; }
 .dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; background: #e6bb75; color: #24251f; }
 @media (max-width: 1060px) {
@@ -139,5 +140,5 @@ dialog::backdrop { background: #040a07d8; }
 @media (max-width: 740px) {
     .dialog-content { padding: 26px 23px 78px; }
     .dialog-content h2 { font-size: 27px; }
-    .dialog-content p { font-size: 16px; line-height: 1.65; }
+    .dialog-content .dialog-paragraph { font-size: 16px; line-height: 1.65; }
 }
