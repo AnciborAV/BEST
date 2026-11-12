@@ -30,4 +30,9 @@ public class HomeController {
     public String direction() {
         return "direction";
     }
+    // Выбор короткой практики по текущему состоянию.
+    @GetMapping("/practices")
+    public String practices() {
+        return "practices";
+    }
 }

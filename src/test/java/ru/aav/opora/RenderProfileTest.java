@@ -25,7 +25,8 @@ class RenderProfileTest {
         assertThat(environment.getProperty("spring.datasource.url"))
             .startsWith("jdbc:h2:mem:opora-render;");
         assertThat(environment.getProperty("server.address")).isEqualTo("0.0.0.0");
-        for (String path : new String[] {"/", "/stability", "/hardship", "/css/reading-size.css"}) {
+        for (String path : new String[] {"/", "/stability", "/hardship", "/direction",
+                "/practices", "/css/reading-size.css", "/css/practices.css", "/js/practices.js"}) {
             mvc.perform(get(path)).andExpect(status().isOk());
         }
     }
