@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="ОПОРА - сила быть собой. Пережить. Осмыслить. Создавать.">
     <title th:text="${projectName}">ОПОРА</title>
-    <link rel="stylesheet" href="/css/home.css?v=approved-art-8-clean-hero" th:href="@{/css/home.css(v='approved-art-8-clean-hero')}">
+    <link rel="stylesheet" href="/css/home.css?v=approved-art-9-unified" th:href="@{/css/home.css(v='approved-art-9-unified')}">
     <script defer src="/js/home.js" th:src="@{/js/home.js}"></script>
 </head>
 <body>
 <div class="page">
+    <main>
+    <div class="masthead">
     <header class="header">
         <a class="brand" href="/" th:href="@{/}" aria-label="ОПОРА - на главную">
             <span th:text="${projectName}">ОПОРА</span>
@@ -22,7 +24,6 @@
         </nav>
         <button class="login" type="button" data-section="Войти">Войти</button>
     </header>
-    <main>
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-copy">
                 <p class="eyebrow">Твоя жизнь. Твой выбор.</p>
@@ -38,6 +39,7 @@
             <img class="mobile-wolves" src="/images/approved-wolves.webp" th:src="@{/images/approved-wolves.webp}"
                  width="555" height="605" alt="Два волка в золотом круге на фоне горного рассвета" loading="eager">
         </section>
+    </div>
         <section class="path" id="path" aria-labelledby="path-title">
             <div class="path-content">
                 <h2 id="path-title">С чего начинается твой путь?</h2>
