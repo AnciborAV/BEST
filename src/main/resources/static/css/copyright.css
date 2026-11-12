@@ -1,0 +1,6 @@
+/* Общая авторская подпись. Отдельная строка сохраняет место для навигации. */
+.site-copyright{max-width:1152px;margin:26px auto 0;padding:20px 0 0;border-top:1px solid #b4976b66;color:#6d5c43;font:17px/1.6 Arial,Helvetica,sans-serif;text-align:center;text-indent:0;word-spacing:normal}
+.home-copyright{background:#142225;padding:0 24px 24px}
+.home-copyright .site-copyright{margin-top:0;color:#cfbea0;border-color:#d6be8d40}
+@media(max-width:1280px){.footer .site-copyright{margin-left:64px;margin-right:64px}}
+@media(max-width:650px){.site-copyright{font-size:16px;margin-top:24px;padding-top:18px}.footer .site-copyright{margin-left:22px;margin-right:22px}.home-copyright{padding:0 22px 22px}}
