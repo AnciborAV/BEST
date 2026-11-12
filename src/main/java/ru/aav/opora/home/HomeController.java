@@ -18,4 +18,10 @@ public class HomeController {
     public String stability() {
         return "stability";
     }
+
+    // Страница поддержки в трудной ситуации с переходом на «Вернуть устойчивость».
+    @GetMapping("/hardship")
+    public String hardship() {
+        return "hardship";
+    }
 }
