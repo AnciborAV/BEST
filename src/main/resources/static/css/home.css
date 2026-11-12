@@ -14,7 +14,7 @@ a { text-decoration: none; color: inherit; }
 button { font: inherit; cursor: pointer; color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-.page { width: 100%; max-width: 1218px; margin: 0 auto; overflow: clip; }
+.page { width: 100%; max-width: none; margin: 0; overflow: clip; }
 .header {
     display: flex; align-items: center; gap: 35px; min-height: 116px;
     padding: 17px 5.45%; background: linear-gradient(100deg, #192020, #142124);
