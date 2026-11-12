@@ -14,7 +14,7 @@ a { text-decoration: none; color: inherit; }
 button { font: inherit; cursor: pointer; color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-.page { max-width: 1440px; margin: 0 auto; }
+.page { width: 100%; max-width: 1218px; margin: 0 auto; overflow: clip; }
 .header {
     display: flex; align-items: center; gap: 35px; min-height: 116px;
     padding: 17px 5.45%; background: linear-gradient(100deg, #192020, #142124);
@@ -29,7 +29,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero {
     position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-start;
     min-height: 680px; color: var(--cream);
-    background: #1e2726 url('/images/approved-hero.webp') center / 100% 100% no-repeat;
+    background: #1e2726 url('/images/approved-hero.webp') center / cover no-repeat;
 }
 /* The approved scenic image remains intact at right. The shadowed left pane hides old embedded letters. */
 .hero::before {
@@ -37,11 +37,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
     background: linear-gradient(90deg, rgba(19,25,25,1) 0%, rgba(24,27,26,.997) 26%, rgba(23,28,27,.99) 38%, rgba(24,29,28,.36) 53%, transparent 68%);
     pointer-events: none;
 }
-.hero-copy { position: relative; z-index: 1; width: 47%; padding: 69px 0 53px 5.5%; }
+.hero-copy { position: relative; z-index: 1; width: 53%; min-width: 0; padding: 69px 0 53px 5.5%; }
 .eyebrow { margin: 0 0 28px; font-size: 15px; letter-spacing: .23em; color: #e5b974; text-align: left; text-transform: uppercase; white-space: nowrap; }
 h1, h2, .direction-name { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
-h1 { margin: 0 0 31px; font-size: clamp(45px, 5.8vw, 75px); line-height: 1.12; letter-spacing: -.023em; text-align: left; }
-.intro { margin: 0; max-width: 460px; font-size: clamp(18px, 1.85vw, 23px); line-height: 1.64; color: #f3e9db; }
+h1 { margin: 0 0 31px; font-size: clamp(43px, 5.05vw, 62px); line-height: 1.12; letter-spacing: -.023em; text-align: left; text-wrap: nowrap; }
+.intro { margin: 0; max-width: 470px; font-size: clamp(18px, 1.72vw, 21px); line-height: 1.64; color: #f3e9db; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 38px; }
 .primary { display: inline-flex; align-items: center; justify-content: center; gap: 19px; background: var(--gold); color: #25271f; border: 0; border-radius: 3px; padding: 17px 28px; min-height: 65px; font-size: 18px; white-space: nowrap; text-align: center; }
 .primary span { font-size: 27px; line-height: 1; }
@@ -84,25 +84,21 @@ dialog::backdrop { background: #040a07d8; }
 .dialog-content p { font-size: 18px; line-height: 1.7; white-space: pre-line; }
 .dialog-content form { margin-top: 24px; }
 .dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; }
-@media (min-width: 1219px) {
-    .hero { min-height: min(56vw, 780px); }
-    .hero-copy { padding-top: clamp(69px, 6vw, 95px); }
-}
 @media (max-width: 1060px) {
     .header { gap: 20px; min-height: 102px; }
     .brand > span { font-size: 39px; }
     .brand small { font-size: 11px; }
     .navigation, .login { font-size: 15px; }
     .hero { min-height: 610px; background-size: cover; }
-    .hero-copy { width: 51%; padding-top: 55px; }
-    h1 { font-size: clamp(43px, 5.4vw, 60px); }
+    .hero-copy { width: 54%; padding-top: 55px; }
+    h1 { font-size: clamp(40px, 5.2vw, 55px); }
     .intro { font-size: 18px; }
     .primary { min-height: 50px; padding: 14px 19px; font-size: 16px; }
     .motto { font-size: 11px; letter-spacing: .19em; }
     .direction { padding: 24px 18px 9px; }
     .direction-description { font-size: 15px; }
 }
-@media (max-width: 740px) {
+@media (max-width: 900px) {
     .header { display: grid; grid-template-columns: 1fr auto; gap: 15px; min-height: 0; padding: 22px 23px 17px; }
     .brand > span { font-size: clamp(32px, 8vw, 40px); }
     .brand small { font-size: 10px; letter-spacing: .19em; }
@@ -112,13 +108,13 @@ dialog::backdrop { background: #040a07d8; }
     .hero::before { background: linear-gradient(180deg, #182020fa 0%, #202725c8 45%, #20272287 72%, #1d2520c2 100%); }
     .hero-copy { order: 0; width: 100%; padding: 44px 23px 0; }
     .eyebrow { font-size: 11px; letter-spacing: .16em; margin-bottom: 24px; }
-    h1 { font-size: clamp(41px, 10vw, 59px); margin-bottom: 24px; }
+    h1 { font-size: clamp(38px, 8vw, 57px); margin-bottom: 24px; text-wrap: balance; }
     .intro { max-width: 620px; font-size: 18px; }
     .actions { margin-top: 18px; gap: 19px; }
     .primary { font-size: 16px; }
     .symbol-link { font-size: 15px; }
     .motto { margin-top: 31px; font-size: 10px; white-space: normal; }
-    .mobile-wolves { display: block; order: 1; width: min(96%, 530px); height: auto; margin: 10px auto 0; }
+    .mobile-wolves { display: block; order: 1; width: min(90%, 500px); height: auto; margin: 10px auto 0; }
     .path { min-height: 0; padding: 34px 23px 135px; }
     .path::after { height: 125px; background-size: auto 100%; }
     .path::before { width: 49%; opacity: .55; }
