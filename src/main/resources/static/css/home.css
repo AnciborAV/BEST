@@ -29,9 +29,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero {
     position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-start;
     min-height: 680px; color: var(--cream);
-    background: #1e2726 url('/images/approved-hero.webp') center / cover no-repeat;
+    background: #1e2726 url('/images/approved-hero-clean.webp') center / cover no-repeat;
 }
-/* The approved scenic image remains intact at right. The shadowed left pane hides old embedded letters. */
+/* The scenic background is cleaned of embedded words; visible text is rendered as HTML. */
 .hero::before {
     content: ''; position: absolute; z-index: -1; inset: 0;
     background: linear-gradient(90deg, rgba(19,25,25,.86) 0%, rgba(23,28,27,.78) 23%, rgba(23,28,27,.55) 37%, rgba(24,29,28,.14) 54%, transparent 68%);
