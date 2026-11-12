@@ -34,7 +34,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* The approved scenic image remains intact at right. The shadowed left pane hides old embedded letters. */
 .hero::before {
     content: ''; position: absolute; z-index: -1; inset: 0;
-    background: linear-gradient(90deg, rgba(19,25,25,1) 0%, rgba(24,27,26,.997) 26%, rgba(23,28,27,.99) 38%, rgba(24,29,28,.36) 53%, transparent 68%);
+    background: linear-gradient(90deg, rgba(19,25,25,.86) 0%, rgba(23,28,27,.78) 23%, rgba(23,28,27,.55) 37%, rgba(24,29,28,.14) 54%, transparent 68%);
     pointer-events: none;
 }
 .hero-copy { position: relative; z-index: 1; width: 53%; min-width: 0; padding: 69px 0 53px 5.5%; }
@@ -77,13 +77,13 @@ h2 { margin: 0 0 23px; text-align: left; font-size: clamp(34px, 3.4vw, 47px); li
 .navigation a:hover, .navigation button:hover, .symbol-link:hover { color: #f0c985; }
 .primary:hover { background: #f2cb8e; }
 .direction:hover .direction-name, .direction:hover .direction-arrow { color: #ad7737; }
-dialog { width: min(560px, calc(100% - 32px)); padding: 0; border: 1px solid #c9a97280; border-radius: 5px; background: #1c251f; color: #f2e9db; }
+dialog { width: min(640px, calc(100% - 32px)); padding: 0; border: 1px solid #b8986a; border-radius: 7px; background: #f8efe3 url('/images/approved-mountains.webp') bottom center / 100% auto no-repeat; color: #292923; box-shadow: 0 24px 90px #070a0780; }
 dialog::backdrop { background: #040a07d8; }
-.dialog-content { padding: 32px; }
+.dialog-content { padding: 34px 37px 88px; position: relative; }
 .dialog-content h2 { margin: 0 0 18px; font-size: 30px; }
-.dialog-content p { font-size: 18px; line-height: 1.7; white-space: pre-line; }
+.dialog-content p { font-size: 18px; line-height: 1.75; white-space: pre-line; color: #3c403a; text-align: justify; }
 .dialog-content form { margin-top: 24px; }
-.dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; }
+.dialog-content .primary { padding: 13px 24px; min-height: 46px; font-size: 16px; background: #e6bb75; color: #24251f; }
 @media (max-width: 1060px) {
     .header { gap: 20px; min-height: 102px; }
     .brand > span { font-size: 39px; }
@@ -105,7 +105,7 @@ dialog::backdrop { background: #040a07d8; }
     .login { grid-column: 2; grid-row: 1; font-size: 15px; padding: 10px 15px; }
     .navigation { grid-column: 1/-1; grid-row: 2; margin-left: 0; font-size: 14px; flex-wrap: wrap; gap: 8px; }
     .hero { display: flex; flex-direction: column; min-height: 0; padding: 0 0 37px; background-image: url('/images/approved-hero-mobile.webp'); background-position: 50% 50%; background-size: cover; }
-    .hero::before { background: linear-gradient(180deg, #182020fa 0%, #202725c8 45%, #20272287 72%, #1d2520c2 100%); }
+    .hero::before { background: linear-gradient(180deg, #182020d8 0%, #20272591 45%, #2027225c 72%, #1d25209c 100%); }
     .hero-copy { order: 0; width: 100%; padding: 44px 23px 0; }
     .eyebrow { font-size: 11px; letter-spacing: .16em; margin-bottom: 24px; }
     h1 { font-size: clamp(38px, 8vw, 57px); margin-bottom: 24px; text-wrap: balance; }
@@ -134,3 +134,10 @@ dialog::backdrop { background: #040a07d8; }
     .primary { padding-inline: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Calm parchment dialog on narrow screens, keeping the mountain illustration visible. */
+@media (max-width: 740px) {
+    .dialog-content { padding: 26px 23px 78px; }
+    .dialog-content h2 { font-size: 27px; }
+    .dialog-content p { font-size: 16px; line-height: 1.65; }
+}
